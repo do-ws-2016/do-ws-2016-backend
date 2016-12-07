@@ -1,0 +1,19 @@
+<table datatable="ng" class="table table-bordered table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>&sum; of Receipts</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="item in list">
+        <td>{{item.name}}</td>
+        <td>{{item.count}}</td>
+        <td>
+            <a href="#/list/{{item.key}}" class="button" ng-click="delete(item, $event)"><i class="lnr lnr-trash"></i></a>
+            <a href="#/list/{{item.key}}" class="button"><i class="lnr lnr-pencil"></i></a>
+        </td>
+    </tr>
+    </tbody>
+</table>

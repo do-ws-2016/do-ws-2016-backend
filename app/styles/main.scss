@@ -1,0 +1,13 @@
+$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+// bower:scss
+@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+// endbower
+
+@import "assets/style.min.css";
+@import "assets/style-responsive.min.css";
+@import "assets/animate.min.css";
+@import "assets/black.css";
+
+@import "elements/page";
+@import "elements/datatable";
+@import "elements/linearicons";
