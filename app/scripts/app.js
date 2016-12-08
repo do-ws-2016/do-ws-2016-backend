@@ -21,6 +21,11 @@ angular
         'angularModalService',
         'toastr'
     ])
+    .config(function(toastrConfig) {
+        angular.extend(toastrConfig, {
+            positionClass: 'toast-bottom-right'
+        });
+    })
     .config(function ($routeProvider) {
         $routeProvider
             .when('/', {

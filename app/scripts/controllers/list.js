@@ -8,24 +8,26 @@
  * Controller of the backendApp
  */
 angular.module('backendApp')
-    .controller('ListCtrl', function ($scope, $log, $routeParams, ModalService, listService, toastr) {
-
-        $log.log($routeParams);
-
-        var listParams = $routeParams;
-
-        $scope.isEditMode = false;
-
-        if(listParams.id){
-            $scope.isEditMode = true;
-        }
-
+    .controller('ListCtrl', function ($scope, $log, ModalService, listService, toastr) {
 
         $scope.list = [{
             name : 'List 1',
             count : 10,
             key : 'babb656783cabfdded'
         }];
+
+        $scope.init = function(){
+
+            listService
+                .get()
+                .then(function(list){
+                    $scope.list = list;
+                })
+            ;
+
+
+
+        };
 
 
         $scope.delete = function(item, $event){
@@ -58,7 +60,7 @@ angular.module('backendApp')
                 .then(function(result){
 
                     if(result){
-                        toastr.success('Item deleted successfully');
+                        toastr.success('Item deleted successfully','', {timeOut:30000});
                     }
 
                 })
