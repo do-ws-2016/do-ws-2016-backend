@@ -37,6 +37,10 @@ angular
                 templateUrl: 'views/receipt.html',
                 controller: 'ReceiptCtrl'
             })
+            .when('/receipts/:id', {
+                templateUrl: 'views/receiptEdit.html',
+                controller: 'ReceiptEditCtrl'
+            })
             .when('/list', {
                 templateUrl: 'views/list.html',
                 controller: 'ListCtrl'

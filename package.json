@@ -32,5 +32,9 @@
   },
   "engines": {
     "node": ">=0.10.0"
+  },
+  "dependencies": {
+    "angular1-apollo": "0.0.2",
+    "apollo-client": "^0.5.19"
   }
 }

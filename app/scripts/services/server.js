@@ -25,7 +25,6 @@ angular.module('backendApp')
             server.protocol + '://'
             + server.host
             + (server.port ? ':' + server.port : '')
-            + '/'
         ;
 
         return server;

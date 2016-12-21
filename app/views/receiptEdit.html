@@ -1,0 +1,72 @@
+<section id="edit-receipt" ng-init="init()">
+
+    <h2>Edit/create receipt</h2>
+
+
+    <form action="#" ng-model="receipt" name="receipt">
+        <div class="row">
+            <div class="col-sm-12 col-md-6">
+
+                <div class="form-group">
+                    <label for="list-title">Title</label>
+                    <input type="text" class="form-control" ng-model="receipt.title" id="list-title"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="list-description">Description</label>
+                    <textarea rows="10" class="form-control" ng-model="receipt.description" id="list-description"></textarea>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <div class="form-group">
+                    <label for="receipt-url">Image url</label>
+                    <input type="url" class="form-control" id="receipt-url" ng-model="receipt.url"/>
+                </div>
+
+                <div class="form-group">
+                    <img class="preview-image" alt="Preview image" ng-src="receipt.url"/>
+                </div>
+            </div>
+        </div>
+        <hr/>
+        <h3>Steps</h3>
+        <div class="row">
+            <div class="col-sm-12 col-md-6">
+                <h4>Current selection <small>Current: {{receipt.duration || 0}}s</small></h4>
+                <div class="step-list">
+
+                    <ul>
+                        <li>Start</li>
+                        <li ng-repeat="step in receipt.steps" class="step">
+                            <div class="step-content">
+                                <div class="step-name">
+                                    {{step.name}}
+                                </div>
+                                <div class="step-duration">
+                                    {{step.duration}}
+                                </div>
+                                <div class="step-control">
+                                    <a href="#" class="button" ng-click="delete($event, step)"><i class="lnr lnr-trash"></i></a>
+                                    <a href="#" class="button" ng-click="editStep($event, step)"><i class="lnr lnr-pencil"></i></a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="controls">
+                            <button ng-click="addStep($event)">
+                                <i class="lnr lnr-plus-circle"></i>
+                            </button>
+                        </li>
+                        <li ng-if="receipt.steps.length === 0"></li>
+                        <li>End</li>
+                    </ul>
+
+
+                </div>
+            </div>
+        </div>
+
+
+
+    </form>
+
+</section>

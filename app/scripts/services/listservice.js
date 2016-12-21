@@ -8,10 +8,13 @@
  * Service in the backendApp.
  */
 angular.module('backendApp')
-    .service('listService', function ($q, server, $resource) {
+    .service('listService', function ($q, server, $resource, $log) {
 
         var List = $resource(
-            server.url + '/list/:'
+            server.url + '/list/:id',
+            {
+                id : '@id'
+            }
         );
 
 
@@ -36,6 +39,6 @@ angular.module('backendApp')
 
 
 
-        return List;
+        return { List : List };
 
     });

@@ -16,12 +16,24 @@ angular.module('backendApp')
             key : 'babb656783cabfdded'
         }];
 
+        var List = listService.List;
+
         $scope.init = function(){
 
-            listService
-                .get()
-                .then(function(list){
-                    $scope.list = list;
+            List.get({id : 'wbezweQvf6t763gqicbiq'});
+
+
+            List
+                .query()
+                .$promise
+                .then(function(lists){
+                    $scope.lists = lists;
+                })
+                .catch(function(err){
+
+                    $scope.lists = [];
+
+                    toastr.error(err.message || 'An error occured!');
                 })
             ;
 
